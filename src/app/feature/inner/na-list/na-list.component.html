@@ -1,0 +1,125 @@
+<p-dialog
+  header="Add New NA Seat"
+  [(visible)]="showAddNAModal"
+  [modal]="true"
+  [style]="{ width: '30vw' }"
+>
+  <app-na-detail></app-na-detail>
+</p-dialog>
+
+<div class="m-3">
+  <app-card
+    [title]="'Nation Assembly List'"
+    [columnClass]="'col-12 ml-auto mr-auto'"
+  >
+    <div class="card-body px-0">
+      <div class="row">
+        <div class="flex mx-4">
+          <p-button
+            icon="pi pi-plus"
+            (onClick)="showAddNAModal = true"
+            label="Add NA"
+          ></p-button>
+          <span class="float-end mx-5">
+            <button
+              pButton
+              label="Clear"
+              class="p-button-outlined"
+              icon="pi pi-filter-slash"
+              (click)="clear(dt1)"
+            ></button>
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                (input)="filterGlobal($event)"
+                placeholder="Search keyword"
+              />
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="p-0 table-responsive custom-table">
+        <p-table
+          #dt1
+          class="p-3 table-striped table-hover"
+          [columns]="selectedColumns"
+          [value]="seatNAList"
+          [resizableColumns]="true"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          dataKey="id"
+          [rows]="10"
+          [showCurrentPageReport]="true"
+          [rowsPerPageOptions]="[10, 25, 50]"
+          [paginator]="true"
+          [alwaysShowPaginator]="false"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [globalFilterFields]="['seatName', 'province', 'isActive']"
+          [(selection)]="activeNAList"
+          styleClass="p-datatable-gridlines"
+        >
+          <ng-template pTemplate="caption">
+            <p-multiSelect
+              [options]="cols"
+              [(ngModel)]="selectedColumns"
+              optionLabel="header"
+              appendTo="body"
+              selectedItemsLabel="{0} columns selected"
+              [style]="{ 'min-width': '200px' }"
+              placeholder="Choose Columns"
+            ></p-multiSelect>
+          </ng-template>
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th
+                *ngFor="let col of columns"
+                [pSortableColumn]="col.field"
+                pResizableColumn
+              >
+                @if(col.field === 'isActive') {
+                <p-tableHeaderCheckbox (click)="checkUncheckAll()">
+                </p-tableHeaderCheckbox>
+                {{ col.header }}
+                } @else if (col.header == 'Action') {
+                {{ col.header }}
+                }@else {
+                {{ col.header }}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+                }
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td *ngFor="let col of columns">
+                @if (col.header == 'Action') {
+                <div class="d-flex gap-2">
+                  <button
+                    class="fa fa-pencil btn btn-sm btn-outline-primary"
+                    pTooltip="edit"
+                    (click)="editNA(rowData)"
+                  ></button>
+                  <button
+                    class="fa fa-trash btn btn-sm btn-outline-danger"
+                    pTooltip="delete"
+                    (click)="deleteNA(rowData)"
+                  ></button>
+                </div>
+                } @else if(col.field == 'isActive') {
+                <p-tableCheckbox
+                  [value]="rowData"
+                  (click)="checkUncheck(rowData)"
+                >
+                </p-tableCheckbox>
+                } @else {
+                {{ rowData[col.field] }}
+                }
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </app-card>
+</div>

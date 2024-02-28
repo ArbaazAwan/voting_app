@@ -1,0 +1,196 @@
+<div class="container-fluid">
+  <!-- Input card row start here -->
+  <!-- <div class="row mb-4" >
+    <div class="col-xl-3 col-sm-6 mb-xl-0">
+      <div class="card">
+        <div class="card-header p-3 pt-2">
+          <div
+            class="icon icon-md icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+            <i class="material-icons opacity-10">add</i>
+          </div>
+          <div class="text-end pt-1 pb-2">
+            <p class="text-sm mb-0 text-capitalize">Contingency</p>
+            <h4 class="mb-0"></h4>
+          </div>
+        </div>
+        <hr class="dark horizontal my-0">
+        <div class="card-footer px-3 py-0">
+          <mat-form-field class="text-xs mb-0 w-100 mt-3" appearance="outline">
+            <mat-label class="text-bold">Enter Contingency%</mat-label>
+            <input matInput/>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-header p-3 pt-2">
+          <div
+            class="icon icon-md icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+            <i class="material-icons opacity-10">show_chart</i>
+          </div>
+          <div class="text-end  pb-2">
+            <p class="text-sm mb-0 text-capitalize">Average Cost of 1 Years <span
+                class="text-bold text-lg mb-0"></span></p>
+          </div>
+          <div class="text-end">
+            <p class="text-sm mb-0 text-capitalize"><span
+                class="text-bold text-lg"></span></p>
+          </div>
+        </div>
+        <hr class="dark horizontal my-0">
+        <div class="card-footer  px-3 py-0">
+          <mat-form-field class="text-xs mb-0  mt-3 w-100" appearance="outline">
+            <mat-label class="text-bold" >Enter Number of Years</mat-label>
+            <input  min="1" max="50" />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-header p-3 pt-3">
+          <div
+            class="icon icon-md icon-shape max-card shadow-danger text-center border-radius-xl mt-n4 position-absolute">
+            <i class="material-icons opacity-10">keyboard_arrow_right</i>
+          </div>
+          <div class="text-end pt-1 pb-2">
+            <p class="text-sm mb-3 text-capitalize">upper Limit
+              <span class="text-bold text-lg mb-0"></span>
+            </p>
+          </div>
+        </div>
+        <hr class="dark horizontal my-0">
+        <div class="card-footer  px-3 py-0">
+          <mat-form-field class="text-xs mb-0  mt-3  w-100" appearance="outline">
+            <mat-label class="text-bold">Upper Limit</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-header p-3 pt-3">
+          <div
+            class="icon icon-md icon-shape min-card shadow-success text-center border-radius-xl mt-n4 position-absolute">
+            <i class="material-icons opacity-10">keyboard_arrow_left</i>
+          </div>
+          <div class="text-end pt-1 pb-2">
+            <p class="text-sm mb-3 text-capitalize">Lower Limit
+              <span class="text-bold text-lg mb-0">
+              </span>
+            </p>
+          </div>
+        </div>
+        <hr class="dark horizontal my-0">
+        <div class="card-footer  px-3 py-0">
+          <mat-form-field class="text-xs mb-0  mt-3  w-100" appearance="outline">
+            <mat-label class="text-bold">Lower Limit</mat-label>
+            <input matInput  />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<!-- Display data row start here -->
+  <div class="row mb-6">
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-header p-3 pt-2">
+          <div
+            class="icon icon-md icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+            <i class="material-icons opacity-10">trending_up</i>
+          </div>
+          <div class="text-end pt-1">
+            <p class="text-sm mb-0 text-capitalize">Max Year Cost <span class="text-bold text-lg"></span>
+            </p>
+          </div>
+          <div class="text-end pt-1">
+            <p class="text-sm mb-0 text-capitalize">Max Year Cost with Contingency <span
+                class="text-bold text-lg"></span></p>
+          </div>
+        </div>
+        <hr class="dark horizontal my-0 ">
+        <div class="card-footer p-3 ">
+          <p class="mb-0 text-sm mt-3 mb-2">Year <span class="text-danger font-weight-bolder "> </span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-header p-3 pt-2">
+          <div
+            class="icon icon-md icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+            <i class="material-icons opacity-10">trending_down</i>
+          </div>
+          <div class="text-end pt-1">
+            <p class="text-sm mb-0 text-capitalize">Min Year Cost <span class="text-bold text-lg ">
+                </span></p>
+          </div>
+          <div class="text-end pt-1">
+            <p class="text-sm mb-0 text-capitalize">Min Year Cost with Contingency <span class="text-bold text-lg">
+                </span></p>
+          </div>
+        </div>
+        <hr class="dark horizontal my-0">
+        <div class="card-footer p-3">
+          <p class="mb-0 text-sm  mt-3 mb-2">Year <span class="text-success font-weight-bolder"> </span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Data Chart starts here -->
+<div class="container-fluid">
+  <div class="row" sandbox>
+    <div class="col-md-12">
+      <div class="card z-index-2">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg py-5 pe-1">
+
+          </div>
+        </div>
+        <div class="card-body py-2">
+          <div class="row">
+            <div class="col-md-9">
+              <h6 class="mb-0"> Yearly Cost Chart</h6>
+              <p class="text-sm">Total Cost in Each Year</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Detail Card Start Here -->
+<div class="container-fluid pb-4">
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="card my-1">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <p class="text-white text-capitalize text-bold ps-3">
+              Details
+            </p>
+          </div>
+        </div>
+        <div class="card-body px-0">
+          <div class="row">
+            <div class="text-end">
+              <button type="button"
+                class="btn bg-gradient-primary btn-sm text-right mx-3">
+                Export Table
+              </button>
+            </div>
+          </div>
+          <div class="p-0 table-responsive custom-table">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

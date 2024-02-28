@@ -1,0 +1,209 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="voterForm" (ngSubmit)="onSubmit()">
+      <div class="row mt-4">
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <input
+              pInputText
+              id="fullName"
+              class="w-100"
+              formControlName="voterName"
+            />
+            <label for="fullName">Full Name</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <input
+              pInputText
+              id="fatherName"
+              class="w-100"
+              formControlName="fatherName"
+            />
+            <label for="fatherName">Father Name</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <input
+              pInputText
+              id="cnicNumber"
+              class="w-100"
+              formControlName="voterCNIC"
+            />
+            <label for="cnicNumber">CNIC Number</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <input
+              pInputText
+              id="email"
+              class="w-100"
+              formControlName="voterEmail"
+            />
+            <label for="email">Email</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <input
+              type="date"
+              id="dob"
+              placeholder="YYYY-MM-DD"
+              class="w-100"
+              formControlName="dob"
+            />
+            <label for="dob">Date of Birth</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2"
+            ><p-dropdown
+              class="w-100"
+              name="gender"
+              [options]="genedersList"
+              placeholder="Select Gender"
+              formControlName="genderID"
+            ></p-dropdown>
+            <label for="gender">Gender</label></span
+          >
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <p-dropdown
+              class="w-100"
+              name="province"
+              optionValue="id"
+              optionLabel="name"
+              [options]="(provinceList$ | async) || []"
+              formControlName="professionID"
+              placeholder="Select Province"
+              (onChange)="onProvinceSelected($event)"
+            ></p-dropdown>
+            <label for="province">Province</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <input
+              pInputText
+              id="party"
+              class="w-100"
+              formControlName="politicalParty"
+            />
+            <label for="party">Political Party</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <!-- Add your input field for NA-Seat here -->
+          <span class="p-float-label w-100 mt-2">
+            <p-dropdown
+              class="w-100"
+              name="na"
+              formControlName="naId"
+              [options]="(naList$ | async) || []"
+              optionLabel="seatName"
+              optionValue="id"
+              placeholder="Select NA"
+              (onChange)="onNASeatSelected($event)"
+            ></p-dropdown>
+            <label for="na">NA-Seat</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <!-- Add your input field for PA-Seat here -->
+          <span class="p-float-label w-100 mt-2">
+            <p-dropdown
+              class="w-100"
+              name="pa"
+              formControlName="paId"
+              [options]="(paList$ | async) || []"
+              optionLabel="pA_Seat"
+              optionValue="id"
+              placeholder="Select PA"
+              (onChange)="onPASeatSelected($event)"
+            ></p-dropdown>
+            <label for="pa">PA Seat</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <!-- Add your input field for Union Council here -->
+          <span class="p-float-label w-100 mt-2">
+            <p-dropdown
+              class="w-100"
+              name="unioncouncil"
+              formControlName="ucId"
+              [options]="(ucList$ | async) || []"
+              optionLabel="uC_Seat"
+              optionValue="id"
+              placeholder="Select Union Council"
+              (onChange)="onUCSeatSelected($event)"
+            ></p-dropdown>
+            <label for="unioncouncil">Union Council</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <!-- Add your input field for Village Council here -->
+          <span class="p-float-label w-100 mt-2">
+            <p-dropdown
+              class="w-100"
+              name="vc"
+              formControlName="vcId"
+              [options]="(vcList$ | async) || []"
+              optionLabel="vC_Seat"
+              optionValue="id"
+              placeholder="Select Village Council"
+            ></p-dropdown>
+            <label for="vc">Village Council</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <input pInputText id="profession" class="w-100" />
+            <label for="profession">Profession</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <input
+              pInputText
+              id="locality"
+              class="w-100"
+              formControlName="locality"
+            />
+            <label for="locality">Locality</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <input
+              pInputText
+              id="contested"
+              class="w-100"
+              formControlName="electionContested"
+            />
+            <label for="contested">Election Contested</label>
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
+          <span class="p-float-label w-100 mt-2">
+            <textarea
+              pInputTextarea
+              rows="3"
+              cols="30"
+              id="remarks"
+              class="w-100"
+              formControlName="remarks"
+            ></textarea>
+            <label for="remarks">Remarks</label>
+          </span>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+          <button class="btn bg-gradient-primary" type="submit">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="sidenav-header">
+  <i
+    class="fas fa-times text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+    aria-hidden="true"
+    id="iconSidenav"
+  ></i>
+  <a class="navbar-brand m-0" target="_blank">
+    <img
+      src="../../../../../assets/img/swati-logo.png"
+      class="navbar-brand-img h-100"
+      alt="main_logo"
+    />
+  </a>
+</div>
+<hr class="horizontal light mt-0 mb-2" />
+<div class="collapse navbar-collapse w-auto h-auto" id="sidenav-collapse-main">
+  <ul class="navbar-nav">
+    <div>
+      @for (item of menuItems; track $index) {
+        <li class="nav-item">
+          <a
+            class="nav-link text-white"
+            [routerLink]="item.path"
+            [routerLinkActive]="['bg-gradient-primary']"
+          >
+            <div
+              class="text-white text-center me-2 d-flex align-items-center justify-content-center"
+            >
+              <i class="material-icons opacity-10">{{item.icon}}</i>
+            </div>
+            <span class="nav-link-text ms-1">{{item.title}}</span>
+          </a>
+        </li>
+      }
+    </div>
+  </ul>
+</div>

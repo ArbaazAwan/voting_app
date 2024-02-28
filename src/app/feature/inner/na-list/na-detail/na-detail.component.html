@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="NAForm" (ngSubmit)="onSubmit()">
+      <div class="row mt-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+          <span class="p-float-label w-100">
+            <input
+              pInputText
+              id="seatName"
+              formControlName="seatName"
+              class="w-100"
+            />
+            <label for="seatName">Seat Name</label>
+          </span>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+          <span class="p-float-label w-100">
+            <p-dropdown
+              class="w-100"
+              name="province"
+              [options]="provinceList"
+              optionLabel="name"
+              optionValue="id"
+              placeholder="Select Province"
+              formControlName="provinceID"
+            ></p-dropdown>
+            <label for="province">Province</label>
+          </span>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+          <div class="form-check d-flex justify-content-end">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="isActive"
+              formControlName="isActive"
+            />
+            <label for="isActive" class="form-check-label">Is Active</label>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+          <button class="btn bg-gradient-primary" type="submit">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

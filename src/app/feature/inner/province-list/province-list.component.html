@@ -1,0 +1,81 @@
+<div class="m-3">
+  <app-card [title]="'Provinces'" [columnClass]="'col-12 ml-auto mr-auto'">
+    <div class="card-body px-0">
+      <div class="row">
+        <div class="text-end">
+          <div class="flex mx-4">
+            <button
+              pButton
+              label="Clear"
+              class="p-button-outlined"
+              icon="pi pi-filter-slash"
+              (click)="clear(dt1)"
+            ></button>
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                (input)="filterGlobal($event)"
+                placeholder="Search keyword"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="p-0 table-responsive custom-table">
+        <p-table
+          #dt1
+          class="p-3 table-striped table-hover"
+          [columns]="cols"
+          [value]="provinces"
+          [(selection)]="activeProvinces"
+          [resizableColumns]="true"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          dataKey="id"
+          [rows]="10"
+          [showCurrentPageReport]="true"
+          [rowsPerPageOptions]="[10, 25, 50]"
+          [paginator]="true"
+          [alwaysShowPaginator]="false"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [globalFilterFields]="['name', 'display']"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th
+                *ngFor="let col of columns"
+                [pSortableColumn]="col.field"
+                pResizableColumn
+              >
+                @if(col.field === 'isActive') {
+                <p-tableHeaderCheckbox (click)="checkUncheckAll()">
+                </p-tableHeaderCheckbox>
+                {{ col.header }}
+                } @else {
+                {{ col.header }}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+                }
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td *ngFor="let col of columns">
+                @if (col.field !== 'isActive') {
+                {{ rowData[col.field] }}
+                } @else {
+                <p-tableCheckbox
+                  [value]="rowData"
+                  (click)="checkUncheck(rowData)"
+                >
+                </p-tableCheckbox>
+                }
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </app-card>
+</div>
