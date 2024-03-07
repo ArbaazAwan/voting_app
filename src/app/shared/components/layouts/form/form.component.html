@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup" class="row">
+  <mat-form-field class="mx-2" *ngFor="let control of controlConfig">
+    <mat-label>{{ control.name }}</mat-label>
+    <input *ngIf="control.type === 'text'" matInput [formControlName]="control.name">
+    <input *ngIf="control.type === 'number'" type="number" matInput [formControlName]="control.name">
+    <input *ngIf="control.type === 'date'" type="date" matInput [formControlName]="control.name">
+    <mat-error *ngIf="isFieldInvalid(control.name)" class="error-message">
+      {{ control.name }} is required
+    </mat-error>
+  </mat-form-field>
+  <button mat-button mat-raised-button color="primary"  type="submit" (click)="onSubmit()">Submit</button>
+</form>

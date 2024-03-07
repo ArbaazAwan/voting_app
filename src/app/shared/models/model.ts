@@ -93,3 +93,10 @@ export interface RouteInfo {
   icon: string;
   class: string;
 }
+
+export interface FormControlConfig {
+  name: string;
+  value: any;
+  validators?: any[];
+  type: 'text' | 'number' | 'date'; // or any other types you want to support
+}

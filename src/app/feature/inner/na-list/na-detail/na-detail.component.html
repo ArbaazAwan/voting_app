@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12">
-    <form [formGroup]="NAForm" (ngSubmit)="onSubmit()">
+    <!-- <form [formGroup]="NAForm" (ngSubmit)="onSubmit()">
       <div class="row mt-4">
         <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
           <span class="p-float-label w-100">
@@ -42,6 +42,7 @@
           <button class="btn bg-gradient-primary" type="submit">Save</button>
         </div>
       </div>
-    </form>
+    </form> -->
+    <app-form [controlConfig]="controlConfig" (formSubmit)="onSubmit()"></app-form>
   </div>
 </div>

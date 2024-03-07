@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
-
+import { FormComponent } from '../../../shared/components/layouts/form/form.component';
 
 @NgModule({
   imports: [],
   exports: [],
-  declarations: [
-  ],
+  declarations: [],
   providers: [],
 })
-export class NameModule { }
-
-
+export class NameModule {}

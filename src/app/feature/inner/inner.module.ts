@@ -12,13 +12,16 @@ import { PaListComponent } from './pa-list/pa-list.component';
 import { UcListComponent } from './uc-list/uc-list.component';
 import { VoterListComponent } from './voter-list/voter-list.component';
 import { RegisterVoterComponent } from './voter-list/register-voter/register-voter.component';
+import { MaterialUIModule } from '../../shared/modules/material-ui.module';
+import { FormComponent } from '../../shared/components/layouts/form/form.component';
 
 @NgModule({
   imports: [
     CommonModule,
     InnerRoutingModule,
     ComponentsModule,
-    SharedModule
+    SharedModule,
+    MaterialUIModule,
   ],
   exports: [],
   declarations: [
@@ -30,7 +33,8 @@ import { RegisterVoterComponent } from './voter-list/register-voter/register-vot
     PaListComponent,
     UcListComponent,
     VoterListComponent,
-    RegisterVoterComponent
+    RegisterVoterComponent,
+    FormComponent
   ],
   providers: [],
 })

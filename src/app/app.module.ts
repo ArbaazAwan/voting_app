@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import {ToastModule} from 'primeng/toast';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {ToastModule} from 'primeng/toast';
   ],
   providers: [
     MessageService,
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

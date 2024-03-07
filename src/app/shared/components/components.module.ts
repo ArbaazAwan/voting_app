@@ -11,7 +11,7 @@ const components = [
 ];
 @NgModule({
   imports: [
-    RouterModule
+    RouterModule,
   ],
   exports: components,
   declarations: components,
